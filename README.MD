@@ -1,23 +1,35 @@
 Setup Steps:
-1) Go to the ports tab. Click "Add port" and type the number 6080. 
-2) Follow the link to your forwarded address. This is where your GUI should be available once you run your code
+N/A
+
+
+GameState Description
+deck:
+-Holds all the cards for the game.
+-Starts with a full deck (52 cards) and decreases as cards are drawn or dealt.
+gamePiles:
+-Represents the seven piles on the board.
+visibleCards:
+-Stores up to three cards that are drawn from the deck.
+discardedCards:
+-Holds cards that have been discarded from the visibleCards.
 
 
 Programming Instructions:
-(All code should be added within App.java)
+(All code should be added within GameState.java)
 
-For this part of the project, we’ll focus on creating the layout for your solitaire game using BorderLayout and GridLayout. Follow these instructions to set up each section and add placeholder text.
+1. initializeDeck: Create a full deck of cards by combining all suits and ranks. Use nested for loops to iterate over the enums Suit and Rank. Create a new Card for each combination and push it onto the deck.
 
-1) Create the Main Frame: Start by creating a JFrame to hold your game layout. Set the JFrame's layout to BorderLayout. Make sure to set the frame to visible!
-2) Create a JPanel for Each BorderLayout Section: We will use the five main areas in BorderLayout: NORTH, SOUTH, EAST, WEST, and CENTER.
-3) Top Panel (NORTH): Create a JPanel for the top section. Set it to be visible in the NORTH area of the BorderLayout.
-Add a JLabel with the text "Your Name's Solitaire" (replace "Your Name" with your actual name) and add this to the top panel.
-4) Left Panel (WEST): Create another JPanel for the left section, which will represent the "pile" area. Label it as "Pile" and add this panel to the WEST area.
-5) Main Play Area (CENTER):This is where the seven main stacks will go. Create a JPanel "playArea" and set its layout to GridLayout with one row and seven columns. Use a loop to create seven JPanels, each representing a "stack." Inside each, add a JLabel with the text "Stack 1", "Stack 2", etc. Add each stack to playArea, then add playArea to the CENTER area.
-6) Bottom Panel (SOUTH): Create a JPanel for the bottom section, which can hold any information or additional text you’d like.
+2. dealInitialCards: Distribute cards from the deck to the seven gamePiles.
+3. drawFromDeck: Draw up to three cards from the deck and add them to visibleCards.
+4. discardCards: Should move all cards from visibleCards to discardedCards.
 
 Testing:
-To test your code, open the GUI you create!
+Change the test in App.java from 0 to either 1 or 2 to test different parts of your code. 
+Test 0 tests initializeDeck and dealInitialCards
+Test 1 tests drawFromDeck
+Test 2 tests discardCards
+
+NOTE: For all tests, there is no pass/fail, just an ouput of the current state to the console. You need to think about what the game should look like and see if it matches the expectation. 
 
 Submission:
 Run the following 3 commands in the terminal:
@@ -27,10 +39,6 @@ Run the following 3 commands in the terminal:
 
 Additional Resources:
 
-Layout resources are provided in Canvas. 
-
-https://docs.oracle.com/javase/tutorial/uiswing/components/index.html 
-
-https://www.youtube.com/channel/UCV9MhzHCMx0Y83b5F8HWv-Q 
-
-https://www.youtube.com/watch?v=mDxEGtMNPtA 
+https://www.geeksforgeeks.org/iterating-over-enum-values-in-java/
+https://www.geeksforgeeks.org/stack-class-in-java/
+https://www.w3schools.com/java/java_enums.asp
